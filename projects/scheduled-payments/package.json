@@ -1,0 +1,14 @@
+{
+  "name": "@pearl/scheduled-payments",
+  "version": "14.0.0",
+  "private": true,
+  "description": "Recurring / scheduled payments built on the payments feature.",
+  "pearl": {
+    "team": "Payments",
+    "kind": "feature"
+  },
+  "peerDependencies": {
+    "@angular/common": "^14.2.0",
+    "@angular/core": "^14.2.0"
+  }
+}

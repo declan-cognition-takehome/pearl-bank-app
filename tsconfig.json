@@ -1,0 +1,63 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "paths": {
+      "@pearl/shared-design-system": [
+        "projects/shared-design-system/src/public-api.ts"
+      ],
+      "@pearl/shared-auth": [
+        "projects/shared-auth/src/public-api.ts"
+      ],
+      "@pearl/shared-analytics": [
+        "projects/shared-analytics/src/public-api.ts"
+      ],
+      "@pearl/kyc-flow": [
+        "projects/kyc-flow/src/public-api.ts"
+      ],
+      "@pearl/accounts": [
+        "projects/accounts/src/public-api.ts"
+      ],
+      "@pearl/payments": [
+        "projects/payments/src/public-api.ts"
+      ],
+      "@pearl/statements": [
+        "projects/statements/src/public-api.ts"
+      ],
+      "@pearl/profile": [
+        "projects/profile/src/public-api.ts"
+      ],
+      "@pearl/scheduled-payments": [
+        "projects/scheduled-payments/src/public-api.ts"
+      ],
+      "@pearl/account-settings": [
+        "projects/account-settings/src/public-api.ts"
+      ]
+    },
+    "target": "es2020",
+    "module": "es2020",
+    "lib": [
+      "es2020",
+      "dom"
+    ]
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

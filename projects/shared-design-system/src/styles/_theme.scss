@@ -1,0 +1,36 @@
+// Global Angular Material theme for the Pearl Bank application.
+// Included exactly once, from the shell application's styles.scss.
+@use 'mat';
+@use 'tokens' as pb;
+
+@include mat.core(pb.$pb-typography);
+@include mat.all-component-themes(pb.$pb-theme);
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: mat.font-family(pb.$pb-typography);
+  background: pb.$pb-surface-muted;
+  color: rgba(black, 0.87);
+}
+
+.pb-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: pb.$pb-space-4 pb.$pb-space-3;
+}
+
+.pb-muted {
+  color: pb.$pb-text-muted;
+}
+
+// Design-system level overrides of Material internals.
+.mat-card.pb-card-flat {
+  box-shadow: none;
+  border: 1px solid pb.$pb-border;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: pb.$pb-border;
+}

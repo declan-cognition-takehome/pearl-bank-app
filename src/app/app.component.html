@@ -1,0 +1,14 @@
+<mat-toolbar color="primary" class="shell__toolbar">
+  <span class="shell__brand">Pearl Bank</span>
+  <nav class="shell__nav">
+    <a *ngFor="let link of links" [routerLink]="link.path" routerLinkActive="shell__link--active" class="shell__link">
+      {{ link.label }}
+    </a>
+  </nav>
+  <span class="shell__spacer"></span>
+  <span class="shell__user" data-testid="signed-in-as">{{ displayName$ | async }}</span>
+</mat-toolbar>
+
+<main class="shell__content">
+  <router-outlet></router-outlet>
+</main>

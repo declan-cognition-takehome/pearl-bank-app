@@ -1,0 +1,14 @@
+{
+  "name": "@pearl/shared-auth",
+  "version": "14.0.0",
+  "private": true,
+  "description": "Authentication session, guards and customer context shared by all features.",
+  "pearl": {
+    "team": "Identity",
+    "kind": "shared"
+  },
+  "peerDependencies": {
+    "@angular/common": "^14.2.0",
+    "@angular/core": "^14.2.0"
+  }
+}

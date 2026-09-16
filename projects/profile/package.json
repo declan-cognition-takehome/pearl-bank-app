@@ -1,0 +1,14 @@
+{
+  "name": "@pearl/profile",
+  "version": "14.0.0",
+  "private": true,
+  "description": "Customer profile: contact details and preferences.",
+  "pearl": {
+    "team": "Customer Profile",
+    "kind": "feature"
+  },
+  "peerDependencies": {
+    "@angular/common": "^14.2.0",
+    "@angular/core": "^14.2.0"
+  }
+}

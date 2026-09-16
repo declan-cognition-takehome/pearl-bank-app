@@ -1,0 +1,70 @@
+<div class="pb-page kyc" *ngIf="step$ | async as step">
+  <pb-page-header title="Verify your identity" subtitle="Step {{ stepIndex(step) }} of {{ steps.length }}"></pb-page-header>
+
+  <ol class="kyc__progress">
+    <li *ngFor="let s of steps" [class.kyc__progress--current]="s === step">{{ s }}</li>
+  </ol>
+
+  <pb-card *ngIf="step === 'identity'" title="Your details" subtitle="As shown on your identity document">
+    <form [formGroup]="identityForm" class="kyc__form">
+      <mat-form-field appearance="outline">
+        <mat-label>Legal name</mat-label>
+        <input matInput formControlName="legalName" data-testid="legal-name" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Date of birth</mat-label>
+        <input matInput formControlName="dateOfBirth" placeholder="YYYY-MM-DD" data-testid="dob" />
+      </mat-form-field>
+      <mat-radio-group formControlName="documentType" class="kyc__radio-group" aria-label="Document type">
+        <mat-radio-button value="passport">Passport</mat-radio-button>
+        <mat-radio-button value="drivers-licence">Driver licence</mat-radio-button>
+      </mat-radio-group>
+      <mat-form-field appearance="outline">
+        <mat-label>Document number</mat-label>
+        <input matInput formControlName="documentNumber" data-testid="document-number" />
+      </mat-form-field>
+    </form>
+  </pb-card>
+
+  <pb-card *ngIf="step === 'address'" title="Residential address">
+    <form [formGroup]="addressForm" class="kyc__form">
+      <mat-form-field appearance="outline">
+        <mat-label>Street address</mat-label>
+        <input matInput formControlName="line1" data-testid="line1" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Suburb</mat-label>
+        <input matInput formControlName="suburb" data-testid="suburb" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Postcode</mat-label>
+        <input matInput formControlName="postcode" maxlength="4" data-testid="postcode" />
+      </mat-form-field>
+      <mat-checkbox formControlName="residential">This is where I live</mat-checkbox>
+    </form>
+  </pb-card>
+
+  <pb-card *ngIf="step === 'review'" title="Review and consent">
+    <dl class="kyc__summary">
+      <dt>Name</dt>
+      <dd data-testid="review-name">{{ kyc.snapshot().identity.legalName }}</dd>
+      <dt>Document</dt>
+      <dd>{{ kyc.snapshot().identity.documentType }} · {{ kyc.snapshot().identity.documentNumber }}</dd>
+      <dt>Address</dt>
+      <dd>{{ kyc.snapshot().address.line1 }}, {{ kyc.snapshot().address.suburb }} {{ kyc.snapshot().address.postcode }}</dd>
+    </dl>
+    <mat-checkbox data-testid="consent" (change)="consentChanged($event.checked)">
+      I consent to Pearl Bank verifying these details with the document issuer.
+    </mat-checkbox>
+    <p *ngIf="submitted" class="kyc__done" data-testid="kyc-complete">
+      <pb-status-chip status="complete"></pb-status-chip> Identity verified. Welcome to Pearl Bank.
+    </p>
+  </pb-card>
+
+  <div class="kyc__actions">
+    <pb-button variant="link" [disabled]="step === 'identity'" (pressed)="kyc.back()">Back</pb-button>
+    <pb-button variant="primary" [disabled]="!kyc.canAdvance() || submitted" (pressed)="kyc.next()">
+      {{ step === 'review' ? 'Submit' : 'Continue' }}
+    </pb-button>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+@use 'mat';
+@use 'tokens' as pb;
+
+// Onboarding uses slightly larger step headings than the rest of the app.
+$kyc-typography: mat.define-typography-config(
+  $font-family: pb.$pb-font-family,
+  $title: mat.define-typography-level(22px, 30px, 600),
+  $subheading-2: mat.define-typography-level(16px, 24px, 500),
+);
+
+.kyc__progress {
+  display: flex;
+  gap: pb.$pb-space-3;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 pb.$pb-space-4;
+  text-transform: capitalize;
+  color: pb.$pb-text-muted;
+
+  &--current {
+    @include mat.typography-level($kyc-typography, subheading-2);
+    color: mat.get-color-from-palette(pb.$pb-primary, 700);
+  }
+}
+
+.kyc__form {
+  display: grid;
+  gap: pb.$pb-space-2;
+}
+
+.kyc__radio-group {
+  display: flex;
+  gap: pb.$pb-space-4;
+  margin-bottom: pb.$pb-space-3;
+}
+
+.kyc__summary {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  row-gap: pb.$pb-space-1;
+
+  dt {
+    color: pb.$pb-text-muted;
+  }
+
+  dd {
+    margin: 0;
+  }
+}
+
+.kyc__actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.kyc__done {
+  display: flex;
+  align-items: center;
+  gap: pb.$pb-space-2;
+  color: pb.$pb-positive;
+}

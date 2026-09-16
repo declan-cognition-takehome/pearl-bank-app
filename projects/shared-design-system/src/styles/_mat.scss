@@ -1,0 +1,4 @@
+// Single entry point for Angular Material's Sass API inside the Pearl Bank design system.
+// Every design-system and feature stylesheet reaches Material through `@use 'mat';`
+// so that the vendor namespace can be swapped or pinned in one place.
+@forward '@angular/material';

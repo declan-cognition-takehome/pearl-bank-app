@@ -1,0 +1,57 @@
+@use 'mat';
+@use 'tokens' as pb;
+
+// The headline balance uses a display size that the shared typography scale does not define.
+$accounts-typography: mat.define-typography-config(
+  $font-family: pb.$pb-font-family,
+  $display-1: mat.define-typography-level(34px, 40px, 300),
+);
+
+.accounts__total {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 pb.$pb-space-4;
+
+  strong {
+    @include mat.typography-level($accounts-typography, display-1);
+  }
+}
+
+.accounts__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: pb.$pb-space-3;
+  margin-bottom: pb.$pb-space-4;
+}
+
+.accounts__card {
+  cursor: pointer;
+}
+
+.accounts__balance {
+  display: block;
+  font-size: 22px;
+  font-weight: 600;
+  color: pb.$pb-positive;
+
+  &--negative {
+    color: pb.$pb-negative;
+  }
+}
+
+.accounts__day {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 500;
+  margin: pb.$pb-space-3 0 pb.$pb-space-1;
+}
+
+.accounts__table {
+  width: 100%;
+}
+
+.accounts__amount {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}

@@ -1,0 +1,40 @@
+@use 'tokens' as pb;
+
+.shell__toolbar {
+  gap: pb.$pb-space-4;
+}
+
+.shell__brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.shell__nav {
+  display: flex;
+  gap: pb.$pb-space-3;
+}
+
+.shell__link {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.8;
+  font-size: 14px;
+
+  &--active {
+    opacity: 1;
+    text-decoration: underline;
+  }
+}
+
+.shell__spacer {
+  flex: 1;
+}
+
+.shell__user {
+  font-size: 14px;
+}
+
+.shell__content {
+  max-width: 960px;
+  margin: 0 auto;
+}

@@ -1,0 +1,24 @@
+# Ownership boundaries for the Pearl Bank customer app.
+# Team handles are illustrative GitHub teams.
+
+# Platform / shared
+/projects/shared-design-system/   @pearl-bank/design-systems
+/projects/shared-auth/            @pearl-bank/identity
+/projects/shared-analytics/       @pearl-bank/digital-analytics
+
+# Feature areas
+/projects/kyc-flow/               @pearl-bank/digital-onboarding
+/projects/accounts/               @pearl-bank/accounts
+/projects/statements/             @pearl-bank/accounts
+/projects/payments/               @pearl-bank/payments
+/projects/scheduled-payments/     @pearl-bank/payments
+/projects/profile/                @pearl-bank/customer-profile
+/projects/account-settings/       @pearl-bank/customer-profile
+
+# Application shell and workspace configuration
+/src/                             @pearl-bank/web-platform
+/angular.json                     @pearl-bank/web-platform
+/package.json                     @pearl-bank/web-platform
+/tsconfig*.json                   @pearl-bank/web-platform
+/.eslintrc.json                   @pearl-bank/web-platform
+/docs/                            @pearl-bank/web-platform

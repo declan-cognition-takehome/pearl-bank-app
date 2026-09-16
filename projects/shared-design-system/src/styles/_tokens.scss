@@ -1,0 +1,75 @@
+// Pearl Bank design tokens (colour palettes, typography, spacing).
+@use 'mat';
+
+$pb-pearl: (
+  50: #eef4f6,
+  100: #d3e3e8,
+  200: #b6d0d8,
+  300: #98bcc8,
+  400: #82adbc,
+  500: #6c9eb0,
+  600: #6496a9,
+  700: #598ca0,
+  800: #4f8297,
+  900: #3d7087,
+  A100: #e6f7ff,
+  A200: #b3e6ff,
+  A400: #80d5ff,
+  A700: #66ccff,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: rgba(black, 0.87),
+    A700: rgba(black, 0.87),
+  ),
+);
+
+$pb-primary: mat.define-palette($pb-pearl, 700, 300, 900);
+$pb-accent: mat.define-palette(mat.$amber-palette, 600, 300, 800);
+$pb-warn: mat.define-palette(mat.$red-palette, 600);
+
+$pb-font-family: 'Inter, "Helvetica Neue", Arial, sans-serif';
+
+$pb-typography: mat.define-typography-config(
+  $font-family: $pb-font-family,
+  $headline: mat.define-typography-level(28px, 36px, 600),
+  $title: mat.define-typography-level(20px, 28px, 600),
+  $subheading-2: mat.define-typography-level(16px, 24px, 500),
+  $body-1: mat.define-typography-level(15px, 22px, 400),
+  $caption: mat.define-typography-level(12px, 18px, 400),
+  $button: mat.define-typography-level(14px, 20px, 600),
+);
+
+$pb-theme: mat.define-light-theme((
+  color: (
+    primary: $pb-primary,
+    accent: $pb-accent,
+    warn: $pb-warn,
+  ),
+  typography: $pb-typography,
+  density: 0,
+));
+
+$pb-space-1: 4px;
+$pb-space-2: 8px;
+$pb-space-3: 16px;
+$pb-space-4: 24px;
+$pb-space-5: 32px;
+
+$pb-radius: 12px;
+$pb-surface: #ffffff;
+$pb-surface-muted: #f5f8f9;
+$pb-border: #d9e2e6;
+$pb-text-muted: #5f6f76;
+$pb-positive: #1e7d4f;
+$pb-negative: #b3261e;

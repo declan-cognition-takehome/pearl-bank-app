@@ -1,0 +1,18 @@
+@use 'tokens' as pb;
+
+:host {
+  display: block;
+  margin-bottom: pb.$pb-space-3;
+}
+
+mat-card {
+  border-radius: pb.$pb-radius;
+}
+
+.mat-card-header-text {
+  margin: 0;
+}
+
+.mat-card-title {
+  font-size: 18px;
+}

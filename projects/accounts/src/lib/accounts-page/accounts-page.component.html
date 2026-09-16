@@ -1,0 +1,56 @@
+<div class="pb-page accounts">
+  <pb-page-header title="Good morning, {{ displayName$ | async }}" subtitle="Here is where your money sits today">
+  </pb-page-header>
+
+  <p class="accounts__total">
+    <span class="pb-muted">Total balance</span>
+    <strong data-testid="total-balance">{{ accounts.totalBalance() | pbMoney }}</strong>
+  </p>
+
+  <section class="accounts__grid">
+    <pb-card
+      *ngFor="let account of accounts$ | async"
+      [title]="account.name"
+      [subtitle]="account.bsb + ' ' + account.number"
+      [flat]="account.id !== selectedAccountId"
+      class="accounts__card"
+      [attr.data-testid]="'account-' + account.type"
+      (click)="select(account)"
+    >
+      <span class="accounts__balance" [class.accounts__balance--negative]="account.balance < 0">
+        {{ account.balance | pbMoney }}
+      </span>
+      <span class="pb-muted">Available {{ account.available | pbMoney }}</span>
+    </pb-card>
+  </section>
+
+  <pb-card title="Recent transactions">
+    <ng-container *ngFor="let group of accounts.groupedTransactions(selectedAccountId)">
+      <h3 class="accounts__day">
+        {{ group.date | date: 'EEEE d MMMM' }}
+        <span class="pb-muted">{{ group.total | pbMoney }}</span>
+      </h3>
+      <table mat-table [dataSource]="group.transactions" class="accounts__table">
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>Description</th>
+          <td mat-cell *matCellDef="let txn">
+            {{ txn.description }}
+            <pb-status-chip *ngIf="txn.pending" status="pending"></pb-status-chip>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef>Amount</th>
+          <td mat-cell *matCellDef="let txn" class="accounts__amount">{{ txn.amount | pbMoney }}</td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let txn">
+            <pb-button *ngIf="txn.pending" variant="link" (pressed)="settle(txn.id)">Mark settled</pb-button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="['description', 'amount', 'actions']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['description', 'amount', 'actions']" [attr.data-testid]="row.id"></tr>
+      </table>
+    </ng-container>
+  </pb-card>
+</div>
