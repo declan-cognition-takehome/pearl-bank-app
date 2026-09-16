@@ -34,12 +34,12 @@ export const EMPTY_KYC_STATE: KycState = {
  * Applies a partial update to a step's details in place and returns the same object,
  * so form subscriptions holding a reference keep seeing the latest values.
  */
-export function applyStepPatch<T>(details: T, patch: Partial<T>): T {
+export function applyStepPatch<T extends object>(details: T, patch: Partial<T>): T {
   return Object.assign(details, patch);
 }
 
 /** Keys of `details` whose value is still empty (''/null/undefined). */
-export function missingFields<T>(details: T, required: readonly string[]): string[] {
+export function missingFields<T extends object>(details: T, required: readonly string[]): string[] {
   return required.filter((key) => {
     if (!(key in details)) {
       return true;

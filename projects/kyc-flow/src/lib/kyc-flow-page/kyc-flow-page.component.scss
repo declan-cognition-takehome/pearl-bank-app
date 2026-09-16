@@ -4,8 +4,8 @@
 // Onboarding uses slightly larger step headings than the rest of the app.
 $kyc-typography: mat.define-typography-config(
   $font-family: pb.$pb-font-family,
-  $title: mat.define-typography-level(22px, 30px, 600),
-  $subheading-2: mat.define-typography-level(16px, 24px, 500),
+  $headline-6: mat.define-typography-level(22px, 30px, 600),
+  $subtitle-1: mat.define-typography-level(16px, 24px, 500),
 );
 
 .kyc__progress {
@@ -18,7 +18,7 @@ $kyc-typography: mat.define-typography-config(
   color: pb.$pb-text-muted;
 
   &--current {
-    @include mat.typography-level($kyc-typography, subheading-2);
+    @include mat.typography-level($kyc-typography, subtitle-1);
     color: mat.get-color-from-palette(pb.$pb-primary, 700);
   }
 }
