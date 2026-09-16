@@ -1,6 +1,6 @@
 {
   "name": "@pearl/shared-design-system",
-  "version": "14.0.0",
+  "version": "15.0.0",
   "private": true,
   "description": "Pearl Bank design system: Angular Material based UI components, theme and design tokens.",
   "pearl": {
@@ -8,7 +8,7 @@
     "kind": "shared"
   },
   "peerDependencies": {
-    "@angular/common": "^14.2.0",
-    "@angular/core": "^14.2.0"
+    "@angular/common": "^15.2.0",
+    "@angular/core": "^15.2.0"
   }
 }

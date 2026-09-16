@@ -1,6 +1,6 @@
 {
   "name": "pearl-bank-app",
-  "version": "14.0.0",
+  "version": "15.0.0",
   "description": "Pearl Bank customer-facing web application (Angular workspace)",
   "private": true,
   "engines": {

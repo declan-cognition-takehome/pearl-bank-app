@@ -1,6 +1,6 @@
 {
   "name": "@pearl/payments",
-  "version": "14.0.0",
+  "version": "15.0.0",
   "private": true,
   "description": "Pay anyone: payee selection, amount entry and confirmation.",
   "pearl": {
@@ -8,7 +8,7 @@
     "kind": "feature"
   },
   "peerDependencies": {
-    "@angular/common": "^14.2.0",
-    "@angular/core": "^14.2.0"
+    "@angular/common": "^15.2.0",
+    "@angular/core": "^15.2.0"
   }
 }

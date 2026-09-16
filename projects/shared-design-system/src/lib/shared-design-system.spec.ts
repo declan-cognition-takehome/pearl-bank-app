@@ -46,7 +46,7 @@ describe('@pearl/shared-design-system', () => {
 
   it('pb-button renders a raised Material button and emits pressed', async () => {
     const button = await loader.getHarness(MatButtonHarness.with({ text: 'Pay' }));
-    expect(await (await button.host()).hasClass('mat-raised-button')).toBeTrue();
+    expect(await (await button.host()).hasClass('mat-mdc-raised-button')).toBeTrue();
     await button.click();
     expect(fixture.componentInstance.clicks).toBe(1);
   });

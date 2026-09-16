@@ -12,18 +12,16 @@ const STATUS_LABELS: Record<PbStatus, string> = {
 @Component({
   selector: 'pb-status-chip',
   template: `
-    <mat-chip-list aria-label="Status">
-      <mat-chip [class]="'pb-status-chip--' + status" [selectable]="false" disableRipple>
-        {{ label }}
-      </mat-chip>
-    </mat-chip-list>
+    <mat-chip-set aria-label="Status">
+      <mat-chip [class]="'pb-status-chip--' + status" disableRipple>{{ label }}</mat-chip>
+    </mat-chip-set>
   `,
   styles: [
     `
-      .pb-status-chip--complete { background: #d8f3e4; }
-      .pb-status-chip--active { background: #d3e3e8; }
-      .pb-status-chip--pending { background: #fff1c2; }
-      .pb-status-chip--blocked { background: #f9d9d6; }
+      mat-chip.pb-status-chip--complete { --mdc-chip-elevated-container-color: #d8f3e4; }
+      mat-chip.pb-status-chip--active { --mdc-chip-elevated-container-color: #d3e3e8; }
+      mat-chip.pb-status-chip--pending { --mdc-chip-elevated-container-color: #fff1c2; }
+      mat-chip.pb-status-chip--blocked { --mdc-chip-elevated-container-color: #f9d9d6; }
     `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
