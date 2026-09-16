@@ -7,8 +7,12 @@ statements, profile, settings) and the shared libraries they build on.
 The app is deliberately small. Feature areas use in-memory demo data — there is no backend,
 no real authentication and no persistence.
 
-**Current framework version: Angular 14** (`@angular/core` 14.3, Angular Material 14.2,
-TypeScript 4.7). Node 16 or 18 is expected (see `.nvmrc`).
+**Current framework version: Angular 15** (`@angular/core` 15.2, Angular Material 15.2,
+TypeScript 4.9). Node 16 or 18 is expected (see `.nvmrc`).
+
+The workspace is mid-way through the Angular 14 → 18 programme. The Angular 15 step is
+tracked in `docs/migrations/angular-15-migration-plan.md`, which records the integration
+baseline (known failures), migration waves and acceptance criteria for feature branches.
 
 ## Install
 

@@ -1,6 +1,6 @@
 {
   "name": "@pearl/shared-analytics",
-  "version": "14.0.0",
+  "version": "15.0.0",
   "private": true,
   "description": "Product analytics facade (page views, events) shared by customer-facing features.",
   "pearl": {
@@ -8,7 +8,7 @@
     "kind": "shared"
   },
   "peerDependencies": {
-    "@angular/common": "^14.2.0",
-    "@angular/core": "^14.2.0"
+    "@angular/common": "^15.2.0",
+    "@angular/core": "^15.2.0"
   }
 }
