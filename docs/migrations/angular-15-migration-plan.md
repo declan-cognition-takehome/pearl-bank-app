@@ -29,7 +29,7 @@ second Material migration two majors from here. This is what makes the design sy
 | `test:shared-analytics` | pass | **pass** (1/1) |
 | `test:profile` | pass | **pass** (1/1) |
 | `test:account-settings` | pass | **pass** (2/2) |
-| `test:kyc-flow` | pass | fail (compile) |
+| `test:kyc-flow` | pass | fail (compile) → **pass** (5/5) on `angular-15-kyc-flow` |
 | `test:accounts` | pass | fail (compile) |
 | `test:payments` | pass | fail (compile) |
 | `test:scheduled-payments` | pass | fail (compile — inherits `payments`) |
@@ -72,7 +72,7 @@ profile                ← account-settings     (imports ProfileFieldComponent)
 | `shared-auth` | Identity | – | none | green (no work) |
 | `shared-analytics` | Digital Analytics | – | none | green (no work) |
 | shell `src/` | Web Platform | all three shared libs | none of its own; root build red only via features | green (no work) |
-| `kyc-flow` | Digital Onboarding | design-system, auth | TS generics (`kyc-state.ts`), Sass typography names | **Yes** |
+| `kyc-flow` | Digital Onboarding | design-system, auth | TS generics (`kyc-state.ts`), Sass typography names | **Done** (`angular-15-kyc-flow`) |
 | `accounts` | Accounts | design-system, auth, analytics | TS generics (2 files), Sass typography name | **Yes** |
 | `payments` | Payments | design-system, auth, analytics | TS generics (`payment-draft.ts`) | **Yes** — and blocks `scheduled-payments` |
 | `statements` | Accounts | design-system | MDC list template/spec | **Yes** |
@@ -85,6 +85,19 @@ cross-feature edges (`payments → scheduled-payments`, `profile → account-set
 constraints, not co-change constraints, because the downstream unit compiles the upstream source
 in its own test build and so simply waits for the upstream fix to land on the integration branch.
 
+## Migration notes from completed units
+
+`kyc-flow` (Wave 1): both blocker categories fixed exactly as prescribed above and no other change was
+needed. Two things worth knowing before the next unit:
+
+- The esbuild CSS optimiser masks Sass failures in `npm run build` as
+  `<component>.scss:17:100: ERROR: Unterminated string token` under `./src/main.ts`/`./src/polyfills.ts`.
+  Read the real `SassError` from `npm run test:<p>` (Karma reports it directly). Only the first failing
+  feature stylesheet is reported per build, so fixing one unit's Sass surfaces the next unit's error
+  (fixing `kyc-flow` surfaced `accounts-page.component.scss`) — that is not a regression.
+- A fresh snapshot may still carry Angular 14 `node_modules` from `main`; run `npm ci` on the
+  integration branch before taking the baseline or `_tokens.scss` itself appears to fail.
+
 # Migration Waves
 
 Wave 0 — shared blockers (this branch, complete)
@@ -93,7 +106,7 @@ Wave 0 — shared blockers (this branch, complete)
 - `shared-auth`, `shared-analytics`, shell: no changes required (verified green)
 
 Wave 1 — parallel-safe units (one branch each, from this integration branch)
-- `kyc-flow` (Digital Onboarding)
+- `kyc-flow` (Digital Onboarding) — done, branch `angular-15-kyc-flow`
 - `accounts` (Accounts)
 - `payments` (Payments) — prioritise; unblocks Wave 2
 - `statements` (Accounts)
