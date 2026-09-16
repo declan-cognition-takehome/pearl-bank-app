@@ -1,6 +1,6 @@
 {
   "name": "@pearl/accounts",
-  "version": "14.0.0",
+  "version": "15.0.0",
   "private": true,
   "description": "Account overview, balances and recent transactions.",
   "pearl": {
@@ -8,7 +8,7 @@
     "kind": "feature"
   },
   "peerDependencies": {
-    "@angular/common": "^14.2.0",
-    "@angular/core": "^14.2.0"
+    "@angular/common": "^15.2.0",
+    "@angular/core": "^15.2.0"
   }
 }

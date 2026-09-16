@@ -7,8 +7,8 @@ statements, profile, settings) and the shared libraries they build on.
 The app is deliberately small. Feature areas use in-memory demo data — there is no backend,
 no real authentication and no persistence.
 
-**Current framework version: Angular 14** (`@angular/core` 14.3, Angular Material 14.2,
-TypeScript 4.7). Node 16 or 18 is expected (see `.nvmrc`).
+**Current framework version: Angular 15** (`@angular/core` 15.2, Angular Material 15.2 (MDC components),
+TypeScript 4.9). Node 16 or 18 is expected (see `.nvmrc`).
 
 ## Install
 

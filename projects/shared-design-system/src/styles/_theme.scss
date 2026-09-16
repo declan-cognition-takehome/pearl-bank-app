@@ -3,7 +3,7 @@
 @use 'mat';
 @use 'tokens' as pb;
 
-@include mat.core(pb.$pb-typography);
+@include mat.core();
 @include mat.all-component-themes(pb.$pb-theme);
 
 html,
@@ -26,11 +26,11 @@ body {
 }
 
 // Design-system level overrides of Material internals.
-.mat-card.pb-card-flat {
+.mat-mdc-card.pb-card-flat {
   box-shadow: none;
   border: 1px solid pb.$pb-border;
 }
 
-.mat-form-field-appearance-outline .mat-form-field-outline {
-  color: pb.$pb-border;
+.mat-mdc-form-field .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused) .mdc-notched-outline > * {
+  border-color: pb.$pb-border;
 }

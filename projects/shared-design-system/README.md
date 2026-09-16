@@ -2,7 +2,7 @@
 
 Owned by **Design Systems**.
 
-The Pearl Bank design system wraps Angular Material (v14) behind `pb-*` components
+The Pearl Bank design system wraps Angular Material (v15, MDC-based components) behind `pb-*` components
 (`pb-button`, `pb-card`, `pb-page-header`, `pb-status-chip`) and the `pbMoney` pipe,
 and owns the single Material theme (`src/styles/_theme.scss`) and design tokens
 (`src/styles/_tokens.scss`).
