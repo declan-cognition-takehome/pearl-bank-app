@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MatTableModule } from '@angular/material/table';
+import { MatLegacyTableModule as MatTableModule } from '@angular/material/legacy-table';
 import { PbAnalyticsModule } from '@pearl/shared-analytics';
 import { PbAuthModule } from '@pearl/shared-auth';
 import { PbDesignSystemModule } from '@pearl/shared-design-system';

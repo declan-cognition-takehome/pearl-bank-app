@@ -3,8 +3,12 @@
 @use 'mat';
 @use 'tokens' as pb;
 
-@include mat.core(pb.$pb-typography);
+@include mat.core();
+
+// Both component generations are themed while the workspace migrates from
+// `@angular/material/legacy-*` to the MDC components one library at a time.
 @include mat.all-component-themes(pb.$pb-theme);
+@include mat.all-legacy-component-themes(pb.$pb-legacy-theme);
 
 html,
 body {
