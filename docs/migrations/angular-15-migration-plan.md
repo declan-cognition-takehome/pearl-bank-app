@@ -29,7 +29,7 @@ second Material migration two majors from here. This is what makes the design sy
 | `test:shared-analytics` | pass | **pass** (1/1) |
 | `test:profile` | pass | **pass** (1/1) |
 | `test:account-settings` | pass | **pass** (2/2) |
-| `test:kyc-flow` | pass | fail (compile) |
+| `test:kyc-flow` | pass | fail (compile) → **pass** (5/5) after `checkpoint-angular-15-kyc-flow` |
 | `test:accounts` | pass | fail (compile) |
 | `test:payments` | pass | fail (compile) |
 | `test:scheduled-payments` | pass | fail (compile — inherits `payments`) |
@@ -72,7 +72,7 @@ profile                ← account-settings     (imports ProfileFieldComponent)
 | `shared-auth` | Identity | – | none | green (no work) |
 | `shared-analytics` | Digital Analytics | – | none | green (no work) |
 | shell `src/` | Web Platform | all three shared libs | none of its own; root build red only via features | green (no work) |
-| `kyc-flow` | Digital Onboarding | design-system, auth | TS generics (`kyc-state.ts`), Sass typography names | **Yes** |
+| `kyc-flow` | Digital Onboarding | design-system, auth | TS generics (`kyc-state.ts`), Sass typography names | **Done** (`checkpoint-angular-15-kyc-flow`, pilot for `docs/playbooks/angular-migration-unit.md`) |
 | `accounts` | Accounts | design-system, auth, analytics | TS generics (2 files), Sass typography name | **Yes** |
 | `payments` | Payments | design-system, auth, analytics | TS generics (`payment-draft.ts`) | **Yes** — and blocks `scheduled-payments` |
 | `statements` | Accounts | design-system | MDC list template/spec | **Yes** |
@@ -93,7 +93,7 @@ Wave 0 — shared blockers (this branch, complete)
 - `shared-auth`, `shared-analytics`, shell: no changes required (verified green)
 
 Wave 1 — parallel-safe units (one branch each, from this integration branch)
-- `kyc-flow` (Digital Onboarding)
+- `kyc-flow` (Digital Onboarding) — done; pilot unit
 - `accounts` (Accounts)
 - `payments` (Payments) — prioritise; unblocks Wave 2
 - `statements` (Accounts)
